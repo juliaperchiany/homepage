@@ -19,14 +19,39 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
-  background: #f4f7f6;
 
+  /* Backgrounds */
+  --page-background: #f4f7f6;
+  --resume-background: #fafafa;
+
+  /* Text */
   --primary-text-color: #222831;
-  --secondary-text-color: #2c3136;
-  --durability-text-color: #373d42;
+  --secondary-text-color: #444b53;
+  --durability-text-color: #474f55;
+
+  /* Accents */
   --icon-color: #5d6872;
   --border-color: #8ccbb7;
   --text-decoration-color: #0f766e;
+
+  /* UI */
+  --card-border-color: #edf1ef;
+  --shadow-color: rgb(0 0 0 / 5%);
+
+  background: var(--page-background);
+}
+
+body,
+.skills__text,
+.languages__item,
+.strengths__item,
+.experiences__item,
+.outside-qa__content p,
+.fun-facts__item span,
+.additional-info__education-university-name,
+.additional-info__education-university-speciality,
+.additional-info__education-university-durability {
+    color: var(--secondary-text-color);
 }
 
 /* ================================================== */
@@ -60,13 +85,13 @@ body {
 /* ================================================== */
 
 .resume {
-    background: #fff;
+    background: var(--resume-background);
     margin: 50px auto;
     max-width: 950px;
     padding: 30px 0;
-    border: 1px solid #edf1ef;
+    border: 1px solid var(--card-border-color);
     border-radius: 10px;
-    box-shadow: 0 4px 18px rgb(0 0 0 / 5%);
+    box-shadow: 0 4px 18px var(--shadow-color);
     border-top: 4px solid var(--text-decoration-color);
 }
 
@@ -591,7 +616,7 @@ body {
     margin-top: 60px;
     padding: 30px 0;
     border-top: 3px solid var(--text-decoration-color);
-    background: var(--main-background-color);
+    background: var(--resume-background);
 }
 
 .footer__report {
@@ -613,7 +638,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
-    border-bottom: 1px dashed rgb(0 0 0 / 8%);
+    border-bottom: 1px dashed var(--card-border-color);
 }
 
 .footer__label {
@@ -636,6 +661,102 @@ body {
     margin-bottom: 12px;
     color: var(--durability-text-color);
     font-size: 12px;
+}
+
+/* ================================================== */
+
+/* Theme Toggle */
+
+/* ================================================== */
+
+.theme-toggle {
+    position: fixed;
+    right: 45px;
+    top: 45px;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    background: var(--text-decoration-color);
+    cursor: pointer;
+    box-shadow: 0 4px 14px var(--shadow-color);
+    transition:
+        transform .3s ease,
+        background-color .3s ease,
+        box-shadow .3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-3px);
+}
+
+.theme-toggle:active {
+    transform: scale(.95);
+}
+
+.theme-toggle svg {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+.theme-toggle path {
+    fill: #f3faf7;
+}
+
+.theme-toggle__sun {
+    opacity: 0;
+
+}
+
+.theme-toggle__moon {
+    opacity: 1;
+}
+
+/* ---------- Dark Theme ---------- */
+
+body[data-theme="dark"] .theme-toggle__moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(.5);
+}
+
+body[data-theme="dark"] .theme-toggle__sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* ================================================== */
+
+/* Dark Theme */
+
+/* ================================================== */
+
+body[data-theme="dark"] {
+    /* Backgrounds */
+    --page-background: #1a1f24;
+    --resume-background: #242b31;
+
+    /* Text */
+    --primary-text-color: #eef4f2;
+    --secondary-text-color: #c8d3cf;
+    --durability-text-color: #9ca8a3;
+
+    /* Accents */
+    --icon-color: #8db8ac;
+    --border-color: #2f6d61;
+    --text-decoration-color: #35b394;
+
+    /* UI */
+    --card-border-color: #374047;
+    --shadow-color: rgb(0 0 0 / 35%);
 }
 
 /* ================================================== */
