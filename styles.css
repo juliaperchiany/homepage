@@ -147,8 +147,8 @@ body {
 
 .contact-info__avatar {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+    width: clamp(140px, 18vw, 200px);
+    height: clamp(140px, 18vw, 200px);
   object-fit: cover;
   border: 3px solid;
   border-color: var(--text-decoration-color);
@@ -697,27 +697,135 @@ body {
     fill: #f3faf7;
 }
 
-/* ================================================== */
-
-/* Responsive */
 
 /* ================================================== */
 
-@media screen and (width <= 576px) {
-  .main-info,
-  .contact_info_container {
+/* Responsive Design */
+
+/* ================================================== */
+
+/* ---------- Tablets ---------- */
+@media (width <= 1024px) {
+.main-info {
+    gap: 30px;
+}
+
+.experiences,
+.outside-qa {
+    margin-right: 30px;
+}
+
+.intro__content {
+    padding: 0 30px;
+}
+}
+
+/* ---------- Small Tablets ---------- */
+@media (width <= 768px) {
+.contact_info_container,
+.main-info {
     flex-direction: column;
-  }
+}
 
-  .contact_info_container {
+.contact-info__block--center {
+    margin-left: 0;
+    margin-bottom: 30px;
     align-items: center;
-  }
+}
 
-  .contact-info__block:not(:last-child) {
-    margin-bottom: 20px;
-  }
+.contact-info__contacts {
+    grid-template-columns: 1fr;
+    gap: 0;
+}
 
-  .experiences {
+.experiences,
+.outside-qa {
     margin-right: 0;
-  }
+}
+
+.additional-info {
+    margin-top: 40px;
+}
+}
+
+/* ---------- Large Phones ---------- */
+@media (width <= 425px) {
+.container {
+    padding: 0 20px;
+}
+
+.resume {
+    margin: 20px auto;
+}
+
+.intro__content {
+    padding: 0 15px;
+}
+
+.contact-info__avatar {
+    width: 170px;
+    height: 170px;
+}
+
+.footer__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+}
+
+/* ---------- Medium Phones ---------- */
+@media (width <= 375px) {
+.contact-info__avatar {
+    width: 150px;
+    height: 150px;
+}
+
+.intro__header {
+    font-size: 1.45rem;
+}
+
+.motto__line:last-child {
+    font-size: 24px;
+}
+
+.back-to-top {
+    width: 48px;
+    height: 48px;
+    right: 20px;
+    bottom: 20px;
+}
+}
+
+/* ---------- Small Phones ---------- */
+@media (width <= 320px) {
+.container {
+    padding: 0 15px;
+}
+
+.contact-info__contacts {
+    gap: 0;
+}
+
+.section-header {
+    gap: 8px;
+}
+
+.section-header__icon {
+    width: 28px;
+    height: 28px;
+}
+
+.skills__item,
+.strengths__item,
+.languages__item,
+.experiences__item,
+.outside-qa__item,
+.fun-facts__item {
+    margin-left: 0;
+}
+
+.footer__title {
+    font-size: 16px;
+}
 }
